@@ -1,14 +1,13 @@
 from tria import app
 from flask import render_template, request, redirect
 from tria.test import username_exist, user_pass, reg_account, password_encrypt, password_decrypt, User, form_db_data, is_admin, save_form, single_form_data
-from tria.database import load_jobs_from_db
 from flask_login import login_user, logout_user, login_required, current_user
 from datetime import date
 
 
 @app.route("/")
 def home():
-  return render_template('index.html', result=load_jobs_from_db())
+  return render_template('index.html')
 
 
 # @app.route('/profile', methods=['POST', 'GET'])
