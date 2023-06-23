@@ -9,6 +9,14 @@
 <body>
   <h1>Hello Muhe!</h1>
 
-  <h3>{{result}}</h3>
+  <!-- <h3>{{result}}</h3> -->
+  {% for row in result %}
+  <div style='border:2px solid blue'>
+  <h4>{{row[1]}}</h1>
+  <h5>{{row[2]}}</h5>
+ <p>{{row[3]}}</h5>
+  <p>{{row[5]}}</h5>
+    </div><br>
+  {% endfor %}
 </body>
 </html>

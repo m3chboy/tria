@@ -1,2 +1,7 @@
 Flask
 gunicorn
+datetime
+sqlalchemy
+sqlalchemy.orm
+flask_bcrypt
+flask_login

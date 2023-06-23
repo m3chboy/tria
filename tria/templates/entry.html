@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eligiblity Form</title>
+</head>
+
+<body>
+
+    <section>
+        <form action="/form" method="post" id="el_form">
+            <h3>Eligiblity Form</h3>
+            <div class="user_amount">
+                <label for="amount">Loan Amount</label>
+                <input type="text" name="amount" placeholder="10000" required>
+            </div>
+            <div class="user_name">
+                <div class="label_align">
+                    <label>First Name</label>
+                    <input type="text" name='fname' required>
+                </div>
+                <div class="label_align">
+                    <label>Second Name</label>
+                    <input type="text" name='sname' required>
+                </div>
+            </div>
+            <div class="user_gender">
+                <div class="label_align">
+                    <label>Gender</label>
+                    <!-- <input type="text" name='gender' placeholder="male" required> -->
+                  <select id="cars" name="gender">
+    <option value="Male">Male</option>
+    <option value="Female">Female</option>
+    <option value="Other">Other</option>
+  </select>
+                </div>
+                <div class="label_align">
+                    <label>Mobile*</label>
+                    <input type="tel" name='mobile' placeholder="+916384982513" required>
+                </div>
+            <placeholder
+            <div class="user_pincode">
+                <label>Pincode</label>
+                <input type="text" name='pincode' placeholder="622204" required>
+            </div>
+            <div class="user_pan">
+                <label>PAN</label>
+                <input type="text" name='pan' placeholder="62D22M04" required>
+            </div>
+            <div class="user_email">
+                <div class="label_align">
+                    <label>email</label>
+                    <input type="email" name='email' placeholder="muhe@gmail.com" required>
+                </div>
+                <div class="label_align">
+                    <label>Date of Birth</label>
+                    <input type="date" name='date' placeholder="22/06/2023" required>
+                </div>
+            </div>
+            <input type='submit' value="submit" id="submit">
+
+        </form>
+    </section>
+</body>
+<style>
+    body {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        /* text-align: center; */
+        background: linear-gradient(90deg, #049DFF 0%, #2585FF 100%);
+    }
+    
+    #el_form {
+        max-width: 500px;
+        min-width: 120px;
+        margin: auto;
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        padding: 10px 70px 0 70px;
+        flex-direction: row;
+        flex-wrap: wrap;
+        background: #FFFFFF;
+        border-radius: 10px;
+    }
+    
+    h3 {
+        margin-bottom: 10px 10px;
+        /* border: #049DFF solid 2px; */
+        width: 400px;
+        margin: auto;
+        text-align: center;
+        font-size: 30px;
+        font-family: 'Helvetica', sans-serif;
+        color: #565972;
+        font-family: Helvetica Rounded;
+    }
+    
+    .user_amount {
+        width: 50%;
+        /* border: 1px salmon solid; */
+        /* margin: 0 40px 0 0; */
+        display: flex;
+        flex-direction: column;
+        margin-top: 5px;
+    }
+    
+    .user_name {
+        width: 100%;
+        /* border: 1px salmon solid; */
+        /* margin: 0 40px 0 0; */
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        margin-top: 5px;
+        flex-wrap: wrap;
+    }
+    
+    .user_gender {
+        width: 100%;
+        
+        display: flex;
+        flex-direction: column;
+        margin-top: 20px;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        margin-top: 5px;
+        flex-wrap: wrap;
+    }
+    
+    .user_pincode {
+        width: 51%;
+        display: flex;
+        flex-direction: column;
+        margin-top: 5px;
+    }
+    
+    .user_pan {
+        width: 51%;
+        display: flex;
+        flex-direction: column;
+        margin-top: 5px;
+    }
+    
+    .user_email {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        margin-top: 20px;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        margin-top: 5px;
+        flex-wrap: wrap;
+    }
+    
+    .label_align {
+        display: flex;
+        flex-direction: column;
+    }
+    
+    label, select {
+        color: #565972;
+        font-family: 'Helvetica', sans-serif;
+        font-weight: 400;
+        font-size: 18px;
+        line-height: 24px;
+        padding-top: 30px;
+        padding-bottom: 4px;
+    }
+  select {
+    padding: 0px;
+  }
+    
+    input {
+        height: 15px;
+        background: #FFFFFF;
+        border: none;
+        border-bottom: 1px solid #BDC1D7;
+        /* border-radius: 5px; */
+        outline: none;
+        font-family: 'Helvetica';
+        /* font-weight: 400; */
+        font-size: 16px;
+        color: #7F839C;
+        padding: 0 5px 5px 5px 5px;
+    }
+    
+    #submit {
+        width: 100%;
+        margin: auto;
+        height: 50px;
+        margin: 30px;
+        background: linear-gradient(90deg, #1CAFFD 0%, #2883FF 100%);
+        box-shadow: 0px 17px 43px 1px rgba(0, 158, 255, 0.42);
+        border-radius: 25px;
+        text-align: center;
+        font-family: 'Helvetica Rounded', sans-serif;
+        font-weight: 700;
+        font-size: 16px;
+        color: #FFFFFF;
+        border: none;
+        padding: 14px 0px 20px 0;
+    }
+    
+    @media (max-width: 700px) {
+        #el_form {
+            max-width: 300px;
+            padding: 10px 70px 0 70px;
+            /* align-items: center; */
+            /* justify-content: center; */
+            /* text-align: center; */
+        }
+        /* .user_email {
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        } */
+    }
+</style>
+
+</html>

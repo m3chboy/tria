@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>{{ single_form[0].email }}</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<div class="container">
+  <h2>User Data</h2>
+             
+  <table class="table">
+    <thead>
+      <!-- <tr>
+        <th>Firstname</th>
+        <th>Lastname</th>
+        <th>Email</th>
+      </tr> -->
+    </thead>
+    <tbody>
+      <tr>
+        <td class="tname">First Name: </td>
+        <td>{{ single_form[0].fname }}</td>
+      </tr>
+      <tr>
+        <td class="tname">Second Name: </td>
+        <td>{{ single_form[0].sname }}</td>
+      </tr>
+     <tr>
+        <td class="tname">Loan Amount: </td>
+        <td>{{ single_form[0].loan }}</td>
+      </tr>
+      <tr>
+        <td class="tname">PAN: </td>
+        <td>{{ single_form[0].pan }}</td>
+      </tr>
+      <tr>
+        <td class="tname">Pincode: </td>
+        <td>{{ single_form[0].pincode }}</td>
+      </tr>
+      <tr>
+        <td class="tname">Gender: </td>
+        <td>{{ single_form[0].gender }}</td>
+      </tr>
+      <tr>
+        <td class="tname">Email: </td>
+        <td><a href='mailto:{{ single_form[0].email }}'>{{ single_form[0].email }}</a></td>
+      </tr>
+      <tr>
+        <td class="tname">Mobile: </td>
+        <td>{{ single_form[0].mobile }}</td>
+      </tr>
+      <tr>
+        <td class="tname"> </td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+</body>
+  <style>
+   
+    .container h2{
+      text-align: center;
+      width: 100%;
+      margin: auto;
+      /* border: solid 2px red; */
+      margin-bottom: 30px;
+    }
+    .container {
+      width: 60%;
+    }
+    .container .tname {
+      font-family: Helvatica;
+      font-size: 18px;
+    }
+  </style>
+</html>
