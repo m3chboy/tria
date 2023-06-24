@@ -1,22 +1,584 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Form</title>
-</head>
-<body>
-  <h1>Hello Muhe!</h1>
 
-  <!-- <h3>{{result}}</h3> -->
-  {% for row in result %}
-  <div style='border:2px solid blue'>
-  <h4>{{row[1]}}</h1>
-  <h5>{{row[2]}}</h5>
- <p>{{row[3]}}</h5>
-  <p>{{row[5]}}</h5>
-    </div><br>
-  {% endfor %}
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tria Groups
+    </title>
+    <link rel="shortcut icon" href="{{ url_for("static", filename="./assets/Tria favicon/favicon.ico") }}" type="image/x-icon">
+    <!-- stylesheet -->
+    <link rel="stylesheet" href="{{ url_for("static", filename="./css/style.css") }}">
+
+    <!-- font-awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer"
+    />
+
+    <!-- Calendly link widget begin -->
+    <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
+
+    <!-- btn -->
+
+</head>
+
+<body>
+    <!-- navbar  -->
+
+    <section id="header">
+        <a href="/" class="logo"><img src="{{ url_for("static", filename="./assets/logo.svg") }}" alt=""></a>
+        <div>
+
+            <ul id="navbar">
+
+                <li><a href="#" class="active-n">Home</a></li>
+                <li><a href="#contact-us">About Us</a></li>
+                <li><a href="#calculator">Calculator</a></li>
+                <li><a href="#service">Services</a></li>
+                <li><a href="#faq">FAQ</a></li>
+                <li>
+                    <a href="#"><button onclick="show('popup')" class='button1'>Support</button></a>
+                </li>
+                <i id="close" class="fas fa-times"></i>
+            </ul>
+        </div>
+        <div class="mobile">
+            <i id="bar" class="fa-solid fa-bars"></i>
+        </div>
+    </section>
+    <!-- end of navbar  -->
+    <!-- popup -->
+    <div class="popup" id="popup">
+        <a href="#" class="pop-close" onclick="hide('popup')">
+            <i class="fas fa-times"></i>
+        </a>
+        <div class="pop_con">
+            <h5>Contact US</h5>
+            <a href="mailto:support@triagroups.com">support@triagroups.com</a>
+            <a href="tel:+91 8939198333">+91 8939198333</a>
+
+        </div>
+    </div>
+    <!-- popup end  -->
+    <!-- hero  -->
+    <section id="hero">
+        <div class="hero-text">
+            <h1>Loans & insurance <br> made simple.</h1>
+            <p>Tria is a group of companies
+            </p>
+            <p> serving all your personal & financial needs</p>
+
+            <button onclick="Calendly.initPopupWidget({url: 'https://calendly.com/triagroups/30min'});return false;" class="button1">Book a free call  <i class="fa-regular fa-calendar"> </i></button>
+            <!-- Calendly link widget end -->
+
+        </div>
+        <div class="hero-img">
+            <img src="{{ url_for("static", filename="./assets/hero.svg") }}" alt="hero">
+        </div>
+    </section>
+    <!-- end of hero  -->
+    <!-- bank  -->
+    <section id="bank">
+        <div class="b-box"> <img src="{{ url_for("static", filename="./assets/bank/b1.png") }}" alt="" class="b__box__img"></div>
+        <div class="b-box"> <img src="{{ url_for("static", filename="./assets/bank/b2.png") }}" alt="" class="b__box__img"></div>
+        <div class="b-box"> <img src="{{ url_for("static", filename="./assets/bank/b3.png") }}" alt="" class="b__box__img"></div>
+        <div class="b-box"> <img src="{{ url_for("static", filename="./assets/bank/b4.png") }}" alt="" class="b__box__img"></div>
+        <div class="b-box"> <img src="{{ url_for("static", filename="./assets/bank/b5.png") }}" alt="" class="b__box__img"></div>
+        <div class="b-box"> <img src="{{ url_for("static", filename="./assets/bank/b6.png") }}" alt="" class="b__box__img"></div>
+        <div class="b-box b_hide"> <img src="{{ url_for("static", filename="./assets/bank/b7.png") }}" alt="" class="b__box__img"></div>
+    </section>
+    <!-- end of bank -->
+    <!-- welcome  -->
+    <section id="welcome">
+        <div class="wc-img">
+            <img src="{{ url_for("static", filename="./assets/wc.svg") }}" alt="">
+        </div>
+
+        <div class="wc-text">
+            <h1>Welcome to tria</h1>
+            <p>With Tria, you get the best advice on Loans, insurance and business registrations. Understand your policy, get answers to your questions, and buy loans, insurance and registrations all at the same place.</p>
+            <button onclick="Calendly.initPopupWidget({url: 'https://calendly.com/triagroups/30min'});return false;" class="button1">Book a free call</button>
+        </div>
+
+        <!-- ````````````````` -->
+
+    </section>
+    <!-- end of welcome  --->
+    <!-- calculator  -->
+    <section id="calculator">
+        <div class="cal-input">
+            <h1>Check loan status, interest. </h1>
+            <p>It is a user-friendly designed calculator that can help you calculate and assess your loan immediately.</p>
+
+            <label>Loan Amount:</label>
+            <input type="text" placeholder="₹ 7,500" oninput="Calculate()" id="principle">
+            <label>Rate (APR):</label>
+            <input type="text" placeholder="7%" oninput="Calculate()" id="rate">
+            <label>Term:</label>
+            <input type="text" placeholder="36m" oninput="Calculate()" id="term">
+            <p>Format: 6m, 12m, 36m, ...</p>
+        </div>
+        <div class="cal-output">
+            <div class="box">
+                <h6 style="margin-top: 60px;">Monthly Payment:</h6>
+                <h7 id="mpay">₹ 231.58</h7>
+                <h6>Number of Payments:</h6>
+                <h7 id="npay">36</h7>
+                <h6>Total Payment:</h6>
+                <h7 id="tpay">₹ 8,336.82</h7>
+                <h6>Total Interest:</h6>
+                <h7 id="ipay">₹ 836.82</h7>
+                <button onclick="Calendly.initPopupWidget({url: 'https://calendly.com/triagroups/30min'});return false;" class="button1">APPLY FOR LOAN</button>
+            </div>
+        </div>
+    </section>
+    <!-- end of calculator -->
+    <!-- guest box -->
+    <section id="guest">
+        <div id="g-img">
+            <img src="{{ url_for("static", filename="./assets/all-in-1.svg") }}" alt="welcome">
+        </div>
+        <div id="g-text">
+            <ul id="list">
+                <li id="list-head"><span>&nbsp;&nbsp;</span> Zero sales people</li>
+                <li id="list-text">we don't have pushy salesmen. You'll only be engaging with exceptional advisors.</li>
+                <li id="list-head"><span>&nbsp;&nbsp;</span> Guidance from beginning</li>
+                <li id="list-text">Our advisor can help you get the best advice on loans & insurance. Understand your policy. and handling all your documentations.</li>
+                <li id="list-head"><span>&nbsp;&nbsp;</span> Free consultation</li>
+                <li id="list-text">Book your free call with Tria, we help to answers to your questions, and get your insurance and Loans, all at the same place.</li>
+            </ul>
+        </div>
+    </section>
+    <!-- end of guest  -->
+    <!-- Services -->
+    <section id="service">
+        <h1 class="s-head">Tria services under one roof</h1>
+        <div class="s-container">
+            <article class="card">
+                <div class="inner-box">
+                    <h1 class="head">Business loan</h1>
+                </div>
+                <div class="card__body">
+                    <h2 class="card__title">Business loan</h2>
+                    <p>Minimum requirements for your business loan</p>
+
+                    <table class="table">
+                        <tr>
+                            <td class="fdata">Minimum age:</td>
+                            <td class="fout">23</td>
+                        </tr>
+                        <tr>
+                            <td class="fdata">Cibil Score:</td>
+                            <td class="fout">680+</td>
+                        </tr>
+                        <tr>
+                            <td class="fdata">Business vintage:</td>
+                            <td class="fout">Minimum 1 year</td>
+                        </tr>
+                        <tr>
+                            <td class="fdata">Verification documentations:</td>
+                            <td class="fout">KYC documents, ITR 2 years, GST, MSME, (Any two business documents)</td>
+                        </tr>
+                    </table>
+
+                </div>
+            </article>
+            <article class="card">
+                <div class="inner-box">
+                    <h1 class="head">Personal Loan</h1>
+                </div>
+                <div class="card__body">
+                    <h2 class="card__title">Personal Loan</h2>
+                    <p>Minimum requirements for your personal loan</p>
+
+                    <table class="table">
+                        <tr>
+                            <td class="fdata">Minimum age:</td>
+                            <td class="fout">21</td>
+                        </tr>
+                        <tr>
+                            <td class="fdata">Cibil Score:</td>
+                            <td class="fout">680+</td>
+                        </tr>
+                        <tr>
+                            <td class="fdata">Minimum salary:</td>
+                            <td class="fout">₹ 13,000/month</td>
+                        </tr>
+                        <tr>
+                            <td class="fdata">Verification documentations:</td>
+                            <td class="fout">KYC documents, recent 3 months payslip, recent 6 months bank statement of your salary account and working identity card</td>
+                        </tr>
+                    </table>
+
+                </div>
+            </article>
+            <article class="card">
+                <div class="inner-box">
+                    <h1 class="head">Home loan</h1>
+                </div>
+                <div class="card__body">
+                    <h2 class="card__title">Home loan</h2>
+                    <p>Minimum requirements for your home loan</p>
+
+                    <table class="table">
+                        <tr>
+                            <td class="fdata">Minimum age:</td>
+                            <td class="fout">23</td>
+                        </tr>
+                        <tr>
+                            <td class="fdata">Cibil Score:</td>
+                            <td class="fout">680+</td>
+                        </tr>
+                        <tr>
+                            <td class="fdata">Verification documentations:</td>
+                            <td class="fout">KYC documents, property documents, Last 6 months of your bank statement and Income proof</td>
+                        </tr>
+                    </table>
+
+                </div>
+            </article>
+            <article class="card">
+                <div class="inner-box">
+                    <h1 class="head"> Life</h1>
+                    <p>Term life insurance</p>
+                </div>
+                <div class="card__body">
+                    <h2 class="card__title">Term Insurance</h2>
+                    <p>Protect your family by insuring your life with a term plan.</p>
+
+                    <table class="table">
+                        <tr>
+                            <td class="fdata">Minimum age:</td>
+                            <td class="fout">18 years</td>
+                        </tr>
+                        <tr>
+                            <td class="fdata">Maximum age:</td>
+                            <td class="fout">Upto 56 years</td>
+                        </tr>
+
+                        <tr>
+                            <td class="fdata">Required documents:</td>
+                            <td class="fout">Basic KYC documents </td>
+                        </tr>
+                    </table>
+
+                </div>
+            </article>
+            <article class="card">
+                <div class="inner-box">
+                    <h1 class="head">Vehicle</h1>
+                    <p>Insurance for your 2, 3, 4 wheelers</p>
+                </div>
+                <div class="card__body">
+                    <h2 class="card__title">Vehicle Insurance</h2>
+                    <p>Cover your vehicle protection expenses by picking a vehicle insurance plan.</p>
+
+                    <table class="table">
+
+                        <tr>
+                            <td class="fdata">Required documents:</td>
+                            <td class="fout">Basic KYC documents, Vehicle registration certificate (RC) or expired insurance copy.</td>
+                        </tr>
+                    </table>
+
+                </div>
+            </article>
+            <article class="card">
+                <div class="inner-box">
+                    <h1 class="head">Health</h1>
+                    <p>Insurance for your better health</p>
+                </div>
+                <div class="card__body">
+                    <h2 class="card__title">Health Insurance</h2>
+                    <p>Cover your health-related expenses by picking a comprehensive health plan.</p>
+
+                    <table class="table">
+                        <tr>
+                            <td class="fdata">Age:</td>
+                            <td class="fout">Applicable for 6 months born baby to 58 years old citizens</td>
+                        </tr>
+                        <tr>
+                            <td class="fdata">Required documents:</td>
+                            <td class="fout">Basic KYC documents </td>
+                        </tr>
+                    </table>
+
+                </div>
+            </article>
+            <article class="card">
+                <div class="inner-box">
+                    <h1 class="head">Registration</h1>
+                    <p>Relax and leave it to us</p>
+                </div>
+                <div class="card__body">
+                    <h2 class="card__title">Registration paper works</h2>
+                    <p>Relax and leave it to us</p>
+
+                    <table class="table">
+                        <tr>
+                            <td class="fout">
+                                <li> MSME & GST</li>
+                            </td>
+                            <td class="fout" style="padding-left: 40px;">
+                                <li> Company Incorporation</li>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="fout">
+                                <li> FSSAI</li>
+                            </td>
+                            <td class="fout" style="padding-left: 40px;">
+                                <li> Property</li>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="fout">
+                                <li> Income Tax</li>
+                            </td>
+                            <td class="fout" style="padding-left: 40px;">
+                                <li> ISO & ISI</li>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="fout">
+                                <li> Trademark</li>
+                            </td>
+                            <td class="fout" style="padding-left: 40px;">
+                                <li> Import/Export Code</li>
+                            </td>
+                        </tr>
+                    </table>
+
+                </div>
+            </article>
+            <article class="card">
+                <div class="inner-box">
+                    <h1 class="head">Demat account</h1>
+                    <p>Start investing for your future </p>
+                </div>
+                <div class="card__body">
+                    <h2 class="card__title">Demat account</h2>
+                    <p>Start your investment journey with Tria with a demat account.</p>
+
+                    <table class="table">
+
+                        <tr>
+                            <td class="fdata">Required documents:</td>
+                            <td class="fout">Basic KYC documents, 6 months bank statement and photo.</td>
+                        </tr>
+                    </table>
+
+                </div>
+            </article>
+            <article class="card">
+                <div class="inner-box">
+                    <h1 class="head">Marketing</h1>
+                    <p>Promote your business</p>
+                </div>
+                <div class="card__body">
+                    <h2 class="card__title">Graphic design</h2>
+                    <p>We offer design and marketing services for your business.</p>
+
+                    <table class="table">
+                        <tr>
+                            <td class="fout">
+                                <li> Business Card</li>
+                            </td>
+                            <td class="fout" style="padding-left: 20px;">
+                                <li> Flyer & Brochure</li>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="fout">
+                                <li> Social Media Poster</li>
+                            </td>
+                            <td class="fout" style="padding-left: 20px;">
+                                <li> Menu Card</li>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="fout">
+                                <li> Invitation</li>
+                            </td>
+                            <td class="fout" style="padding-left: 20px;">
+                                <li> Video Editing</li>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="fout">
+                                <li> Logo</li>
+                            </td>
+                            <td class="fout" style="padding-left: 20px;">
+                                <li> Web & App Design</li>
+                            </td>
+                        </tr>
+                    </table>
+
+                </div>
+            </article>
+        </div>
+    </section>
+    <!-- end of service -->
+    <!-- help -->
+    <section id="help">
+        <div class="help-container">
+            <div class="help-text">
+                <p class="tg">#triagroups</p>
+                <h1>For more help</h1>
+                <p class="h__line">Book your free call to understand the policies</p>
+            </div>
+            <div class="help-btn">
+                <button onclick="show('popup')" class="button1">Tria Support</button>
+            </div>
+        </div>
+    </section>
+    <!-- end of help -->
+    <!-- footer -->
+    <section id="footer__box">
+        <div class="faq" id="faq">
+            <div class="faq__header">
+                <div class="faq__lt">
+                    <h1>FAQ</h1>
+                    <p>Learn more about us, keep up with recent updates and catch the latest news from Tria.</p>
+                </div>
+                <div class="faq__rt">
+                    <p style="cursor: pointer;" id="see-all">See all questions</p>
+                </div>
+            </div>
+            <div class="faq__box">
+                <div class="faq__inner_box ">
+                    <h5 class="linka">Loans</h5>
+                    <div class="pannel active pan1">
+                        <p class="p__head"> Loans </p>
+                        <p>1. Loans we provide ?</p>
+                        <li>
+                            <p>Business loan, Home loan, Msme loan .</p>
+                        </li>
+                        <p>2. What are the basic eligibility ?</p>
+                        <li>
+                            <p>Age limit is between 21 to 52 years and income proof . </p>
+                        </li>
+                        <p>3. Is there is any processing fee ?</p>
+                        <li>
+                            <p>We don’t charge any application, or hidden fees. </p>
+                        </li>
+                    </div>
+                    <span><img src="{{ url_for("static", filename="./assets/right-arrow-icon.svg") }}" alt="" class="box1"></span>
+
+                </div>
+
+                <div class="faq__inner_box">
+                    <h5 class="linkb">Insurance</h5>
+                    <div class="pannel active pan2">
+                        <p class="p__head"> Insurance </p>
+                        <p>1. Insurance policies tria provided ?</p>
+                        <li>
+                            <p>Life insurance, Health Insurance, Vehicle insurance, Wealth insurance</p>
+                        </li>
+                        <p>2. The basic eligibility ?</p>
+                        <li>
+                            <p>There is no basic eligibility </p>
+                        </li>
+                        <p>3. What documentation should I provide ?</p>
+                        <li>
+                            <p>Aadhar, Pan card and Passport size photo. The photo should be in size 2 x 2 inch with clear back plain ground
+                            </p>
+                        </li>
+                    </div>
+                    <span><img src="{{ url_for("static", filename="./assets/right-arrow-icon.svg") }}" alt="" class="box2"></span>
+                </div>
+
+            </div>
+        </div>
+        <div class="contact" id="contact-us">
+            <div class="con__l">
+                <span><img src="{{ url_for("static", filename="./assets/cont_logo.svg") }}" alt=""></span>
+                <p>Tria is a groups of companies serving all your personal and business needs.</p>
+                <h5>Tria <span>Life</span></h5>
+                <p>Tria Life save on insurance coverage for home, vehicle, life, health, and more. </p>
+                <h5>Tria <span>Fin</span></h5>
+                <p>Apply loan online. Fast approval. No lender fees. Low rates. Save thousands. Close fast. Partnered with banks.</p>
+                <h5>Tria <span>Promoters</span></h5>
+                <p>Tria Promoters assist businesses by promoting them digitally through services such as bulk WhatsApp messages for your clients, Tollfree services, and digital marketing.</p>
+            </div>
+            <div class="con__r">
+                <div class="t__row">
+                    <span><a href="#">Home</a></span>
+                    <span><a href="#calculator">Calculator</a></span>
+                    <span><a href="#service">Services</a></span>
+                    <span><a href="#faq">FAQ</a></span>
+                    <span><a href="#contact-us">Contact</a></span>
+                </div>
+                <h3>Contact Us</h3>
+                <div class="t__col">
+                    <a href="mailto:support@triagroups.com" class="under">support@triagroups.com</a>
+                    <a href="tel:+91 8939198333" class="under">+91 8939198333</a>
+                    <a href="mailto:support@triagroups.com">Partner with us</a>
+                    <a href="mailto:support@triagroups.com">Join our team</a>
+                </div>
+                <span class="b__row"><a href="https://www.facebook.com/profile.php?id=100087766884968"><i class="fa-brands fa-facebook"></i></a></span>
+                <span class="b__row"><a href="https://www.instagram.com/triagroups/"><i class="fa-brands fa-instagram"></i></a></span>
+                <span class="b__row"><a href="https://www.youtube.com/@tria3"><i class="fa-brands fa-youtube"></i></a></span>
+                <span class="b__row"><a href="https://twitter.com/triagroups"><i class="fa-brands fa-twitter"></i></a></span>
+
+            </div>
+        </div>
+        <div class="copy">
+            <p>&copy; Copyrights 2023 Triagroups. All rights reserved.</p>
+            <a href="https://www.behance.net/Sudharson-J">Design & build - Sudharson J</a>
+        </div>
+    </section>
+    <!-- float -->
+    <section class="float_box">
+
+        <div id="container-floating">
+
+            <div class="nd4 nds">
+                <a href="mailto:support@triagroups.com">
+                    <i class="fa-solid fa-envelope letter"></i>
+                </a>
+            </div>
+
+            <div class="nd3 nds">
+                <a href="https://api.whatsapp.com/send/?phone=918939198333&text=Hello+tell+about+more+information&type=phone_number&app_absent=0">
+                    <i class="fa-brands fa-whatsapp reminder"></i>
+                </a>
+            </div>
+
+            <div class="nd1 nds">
+                <a href="tel:+91 8939198333">
+                    <i class="fa-solid fa-phone-volume letter"></i>
+                </a>
+            </div>
+
+            <div id="floating-button">
+                <!-- <p class="plus"></p> -->
+                <!-- <i class="fa-solid fa-comment plus"></i> -->
+                <img src="{{ url_for("static", filename="./assets/Tria favicon/favicon-32x32.png") }}" alt="" class="plus">
+
+                <img src="{{ url_for("static", filename="./assets/a-logo.svg") }}./assets/Tria favicon/favicon-32x32.png" alt="" class="edit">
+            </div>
+        </div>
+
+    </section>
+
+    <!-- javascript -->
+
+    <script src="{{ url_for("static", filename="./js/app.js") }}"></script>
+    <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
+    <script>
+        $ = function(id) {
+            return document.getElementById(id);
+        }
+
+        var show = function(id) {
+            $(id).style.display = 'block';
+        }
+        var hide = function(id) {
+            $(id).style.display = 'none';
+        }
+    </script>
 </body>
+
 </html>
