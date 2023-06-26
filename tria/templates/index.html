@@ -10,11 +10,14 @@
     <link rel="shortcut icon" href="{{ url_for("static", filename="./assets/Tria favicon/favicon.ico") }}" type="image/x-icon">
     <!-- stylesheet -->
     <link rel="stylesheet" href="{{ url_for("static", filename="./css/style.css") }}">
-
+<link rel="stylesheet" href="{{ url_for("static", filename="./css/popform.css") }}">
     <!-- font-awesome -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer"
     />
+  <!-- test -->
+  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.6/css/bootstrap.min.css'>
+      <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
 
     <!-- Calendly link widget begin -->
     <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
@@ -129,11 +132,14 @@
                 <h7 id="tpay">₹ 8,336.82</h7>
                 <h6>Total Interest:</h6>
                 <h7 id="ipay">₹ 836.82</h7>
-                <button onclick="Calendly.initPopupWidget({url: 'https://calendly.com/triagroups/30min'});return false;" class="button1">APPLY FOR LOAN</button>
+                <button id="btnOpenForm" class="button1">APPLY FOR LOAN</button>
             </div>
         </div>
     </section>
     <!-- end of calculator -->
+  <!-- testing -->
+  {% include 'popform.html' %}
+  <!-- end of popup form -->
     <!-- guest box -->
     <section id="guest">
         <div id="g-img">
@@ -557,7 +563,7 @@
                 <!-- <i class="fa-solid fa-comment plus"></i> -->
                 <img src="{{ url_for("static", filename="./assets/Tria favicon/favicon-32x32.png") }}" alt="" class="plus">
 
-                <img src="{{ url_for("static", filename="./assets/a-logo.svg") }}./assets/Tria favicon/favicon-32x32.png" alt="" class="edit">
+                <img src="{{ url_for("static", filename="./assets/a-logo.svg") }}" alt="" class="edit">
             </div>
         </div>
 
@@ -568,16 +574,13 @@
     <script src="{{ url_for("static", filename="./js/app.js") }}"></script>
     <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
     <script>
-        $ = function(id) {
-            return document.getElementById(id);
-        }
+        function show(id) {
+  document.getElementById(id).style.display = "block";
+}
 
-        var show = function(id) {
-            $(id).style.display = 'block';
-        }
-        var hide = function(id) {
-            $(id).style.display = 'none';
-        }
+function hide(id) {
+  document.getElementById(id).style.display = "none";
+}
     </script>
 </body>
 

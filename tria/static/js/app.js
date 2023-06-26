@@ -17,6 +17,9 @@ const seeAll = getElement('#see-all')
 const bar = getElement('.mobile')
 const close = getElement('#close')
 const nav = getElement('#navbar')
+const formOpen = getElement('#btnOpenForm')
+const formClose = getElement('#btnCloseForm')
+const eligiblityForm = getElement('.form-popup-bg')
 
 // Nav
 bar.addEventListener('click', () => {
@@ -24,6 +27,15 @@ bar.addEventListener('click', () => {
 })
 close.addEventListener('click', () => {
     nav.classList.toggle('active')
+})
+
+//Form popup and close
+
+formOpen.addEventListener('click', () => {
+    eligiblityForm.classList.toggle('is-visible')
+})
+formClose.addEventListener('click', () => {
+    eligiblityForm.classList.toggle('is-visible')
 })
 
 // Faq

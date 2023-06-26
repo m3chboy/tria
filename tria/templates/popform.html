@@ -1,0 +1,51 @@
+<section class="form-popup-bg">
+        <div class="form-container">
+            <h3>Eligiblity Form</h3>
+            <button class="xmas" id="btnCloseForm"><i class="fas fa-times"></i></button>
+         
+        <form action="/form" method="post" id="el_form">    
+            <div class="user_amount">
+                <label for="amount">Loan Amount</label>
+                <input type="text" name="amount"  required>
+            </div>
+            <div class="user_pan">
+                <label>PAN</label>
+                <input type="text" name='pan'  required>
+            </div>
+            <div class="user_pan">
+                    <label>email</label>
+                    <input type="email" name='email' required>
+            </div>
+            <div class="user_pincode">
+                <label>Pincode</label>
+                <input type="text" name='pincode' required>
+            </div>
+            <div class="user_name">
+                <div class="label_align">
+                    <label>First Name</label>
+                    <input type="text" name='fname' required>
+                </div>
+                <div class="label_align">
+                    <label>Second Name</label>
+                    <input type="text" name='sname' required>
+                </div>
+            </div>
+            <div class="user_gender">
+                <div class="label_align">
+                    <label>Mobile</label>
+                    <input type="tel" name='mobile' placeholder="+916384982513" required>
+                </div>
+                <div class="label_align">
+                    <label>Gender</label>
+                  <select id="cars" name="gender">
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                    <option value="Other">Other</option>
+                    </select>
+                </div>
+            </div>
+            <input type='submit' value="submit" id="submit">
+
+        </form>
+    </div>
+    </section>
