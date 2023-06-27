@@ -9,23 +9,13 @@ from datetime import date
 def home():
   return render_template('index.html')
 
-
-# @app.route('/profile', methods=['POST', 'GET'])
-# @login_required
-# def profile():
-#   if request.method == 'POST':
-#     form = request.form
-#   current_userid = current_user.id
-#   return render_template(
-#     'entry.html',
-#     current_userid=current_userid)
-
-
 @app.route('/dashboard')
 @login_required
 def dashboard():
   current_userid = current_user.id
-  return render_template('dashboard.html', current_userid=current_userid)
+  if is_admin(current_userid):
+    form_db = form_db_data()
+    return render_template('dashboard.html', form_db=form_db)
 
 
 @app.route("/login", methods=['POST', 'GET'])
@@ -78,7 +68,7 @@ def form_page():
     email = form.get('email')
     daytime = date.today()
     save_form(amount, fname, sname, gender, mobile, pincode, pan, email, daytime)
-    return 'shydhyd'
+    return redirect('/')
   return render_template('entry.html')
 
 
@@ -109,8 +99,11 @@ def single_form_page(form_id):
 @app.route('/logout')
 def logout():
   logout_user()
-  return 'Logged out'
+  return redirect('/')
 
-@app.route('/table')
+@app.route('/table', methods=['POST', 'GET'])
 def table_page():
+  if request.method == 'POST':
+    image = request.files['file']
+    return str(image)
   return render_template('table.html')

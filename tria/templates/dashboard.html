@@ -1,12 +1,171 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Dashboard</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+
+    <!-- Stylesheet -->
+    <link rel="stylesheet" type="text/css"
+    href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <link rel="stylesheet" href="{{ url_for('static', filename="./css/dash.css") }}">
+
+  <!-- icon -->
+   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css" integrity="sha384-b6lVK+yci+bfDmaY1u0zE8YYJt0TZxLEAFyYSLHId4xoVvsrQu3INevFKo+Xir8e" crossorigin="anonymous">
 </head>
 <body>
-  <h1>Welcome {{ current_userid }}</h1>
+    <div class="container">
+        <div class="navbar">
+            <div class="logo">
+                <img src="{{ url_for('static', filename="./assets/logo.svg") }}" alt="logo">
+            </div>
+            <div class="time-period">
+                <div class="select">
+                    <div class="from" id="today-date">
+                     <i class="bi bi-calendar-fill"></i>
+                      November 1, 2020
+                    </div>
+                  </div>
+          
+                  <div class="custom">
+                    <p id="">
+                      Admin
+                    </p>
+                  </div>
+
+                  <div class="nav" style="cursor: pointer;"> 
+                    <i class="bi bi-border-width" id="open" onclick="change_css_open()"></i>
+                    <i class="fa fa-calendar" id="close" style="display: none;" onclick="change_css_close()"></i>
+                  </div>
+            </div>
+        </div>
+        <div class="container-body">
+            <div class="sidebar" id="active">
+                <ul class="sidebar-top">
+                    <li id="das">
+                        <i class="bi bi-database-fill-gear"></i>
+                        <a href="#" >Dashboard</a>
+                    </li>
+                    <li>
+                        <i class="bi bi-clipboard-data-fill"></i>
+                        <a href="/formdata">Request</a>
+                    </li>
+                    <li>
+                        <i class="bi bi-person-lines-fill"></i>
+                        <a href="/kyc">KYC Data</a>
+                    </li>
+                    <li class="notification">
+                        <i class="bi bi-bell-fill"></i>
+                        <a href="#">notifications</a>
+                        <span>12</span>
+                      </li>
+                </ul>
+                <ul class="sidebar-bottom">
+                    <li>
+                      <i class="bi bi-gear-fill"></i>
+                        <a href="#">Settings</a>
+                    </li>
+                    <li>
+                       <i class="bi bi-box-arrow-left"></i>
+                        <a href="logout">Logout</a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="main-body" id="box-crt">
+                <div class="cards">
+                    <div class="row row-1">
+                        <div class="col">
+                          <div class="card">
+                            <div class="logo">
+                             <i class="bi bi-peace-fill"></i>
+                            </div>
+            
+                            <div class="content">
+                              <h1>Request</h1>
+                              <h2>{{ form_db[0].id }}</h2>
+            
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col">
+                          <div class="card">
+                            <div class="logo">
+                              <i class="bi bi-reception-4"></i>
+                            </div>
+            
+                            <div class="content">
+                              <h1>KYC Data</h1>
+                              <h2>950</h2>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    <div class="row row-2">
+                       <h3 class="head">Recent</h3>
+                        <div class="chart">
+                           
+                            <table .table>
+                                <tr>
+                                  <th>ID</th>
+                                  <th>Email</th>
+                                  <th>Loan Amount</th>
+                                </tr>
+                                <tr>
+                                  <td>1</td>
+                                  <td>{{ form_db[0].email }}</td>
+                                  <td>{{ form_db[0].loan }}</td>
+                                </tr>
+                                <tr>
+                                  <td>2</td>
+                                  <td>{{ form_db[0].email }}</td>
+                                  <td>{{ form_db[0].loan }}</td>
+                                </tr>
+                                <tr>
+                                  <td>3</td>
+                                  <td>{{ form_db[0].email }}</td>
+                                  <td>{{ form_db[0].loan }}</td>
+                                </tr>
+                               
+                               
+                              </table>
+                        </div>
+                    </div>
+
+                    <div class="row row-3">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+      function change_css_open(){
+          document.getElementById('active').style.display = 'block';
+          document.getElementById('close').style.display = 'block';
+          document.getElementById('box-crt').style.display = 'none';
+          document.getElementById('open').style.display = 'none';
+      }
+
+      function change_css_close(){
+          document.getElementById('active').style.display = 'none';
+          document.getElementById('close').style.display = 'none';
+          document.getElementById('box-crt').style.display = 'block';
+          document.getElementById('open').style.display = 'block';
+      }
+
+      
+
+
+      var objToday = new Date(),
+	dayOfMonth = today + ( objToday.getDate() < 10) ? '0' + objToday.getDate() + domEnder : objToday.getDate(),
+	months = new Array('January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'),
+	curMonth = months[objToday.getMonth()],
+	curYear = objToday.getFullYear()
+var today =   curMonth + " " + dayOfMonth + ", " + curYear + "  <i class='bi bi-calendar-fill'></i>";
+
+document.getElementById("today-date").innerHTML = today;
+  </script>
 </body>
 </html>
