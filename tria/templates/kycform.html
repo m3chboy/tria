@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KYC Form</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='./css/kycform.css') }}">
+
+    <!-- icon -->
+   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css" integrity="sha384-b6lVK+yci+bfDmaY1u0zE8YYJt0TZxLEAFyYSLHId4xoVvsrQu3INevFKo+Xir8e" crossorigin="anonymous">
+</head>
+<body>
+    <section class="form-popup-bg is-visible">
+        <div class="form-container">
+            <h3>KYC Form</h3>
+         
+        <form action="/kycform/{{ formid }}" method="post" id="el_form" enctype="multipart/form-data">  
+            <div class="user_name">
+                <div class="label_align">
+                    <label>First Name <span class="star-imp">*</span></label>
+                    <input type="text" name='fname' id="fname_in" required>
+                </div>
+                <div class="label_align">
+                    <label>Second Name <span class="star-imp">*</span></label>
+                    <input type="text" name='sname' id="sname_in" required>
+                </div>
+            </div>
+
+            <div class="user_name">
+                <div class="label_align">
+                    <label>Mobile <span class="star-imp">*</span></label>
+                    <input type="tel" name='mobile' placeholder="+916384982513" required>
+                </div>
+                <div class="label_align">
+                    <label>email <span class="star-imp">*</span></label>
+                    <input type="email" name='email' required>
+                </div>
+            </div>  
+
+            <div class="user_name">
+                <div class="label_align">
+                    <label>Pincode <span class="star-imp">*</span></label>
+                    <input type="text" name='pincode' id="pincode_in" required>
+                </div>
+                <div class="label_align" style="min-width: 175px;">
+                    <label>Date of Birth <span class="star-imp">*</span></label>
+                    <input type="date" name='dob' required>
+                </div>
+            </div>
+
+            <div class="user_pincode">
+                <label>
+                  Address 
+                  <span class="star-imp">*</span>
+                  <div class="loader" id="loadAdd"><i class="bi bi-arrow-repeat"></i></div>                   
+                </label>
+                <input type="text" name='address' value="" required readonly onclick="myLocation()" id="myAdd">
+            </div>
+
+            <div class="user_pan">
+                <label>PAN <span class="star-imp">*</span></label>
+                <input type="text" name='pan'  required>
+            </div>
+
+            <div class="user_pincode">
+                <label>Aadhar <span class="star-imp">*</span></label>
+                <input type="text" name='aadhar' id="aadhar_in" required>
+            </div>
+            
+            <div class="ma-status">
+                <div class="label_align">
+                    <label for="">Single</label>
+                <input type="radio" name="mstatus" checked value="Single" onclick="momName()" required>
+                </div>
+                <div class="label_align">
+                    <label for="" >Married</label>
+                <input type="radio" name="mstatus" value="Married" onclick="husName()" required>
+                </div>
+                <div class="label_align">
+                    <label for="" >Widow</label>
+                <input type="radio" name="mstatus" value="Widow" id="tes" onclick="husName()" required>
+                </div>
+            </div>
+
+            <div class="user_pincode">
+                <label id="sub-name">Mother's Name <span class="star-imp">*</span></label>
+                <input type="text" name='gaurdian' id="guardian_in" required>
+            </div>
+
+            <div class="user_pincode">
+                <label>Upload Aadhar Card <span class="star-imp">*</span></label>
+                <input type="file" name='aadhar_upload' style="height: 25px;border: none;padding: 0;" id="aadhar_upload" onchange="uploadFile('aadhar_upload')" accept=".txt,.pdf,.jpg,.jpeg,.png" required>
+              <span class="file_status" id="aadhar_upload_status"></span><br><br>
+            </div>
+
+            <div class="user_pincode">
+                <label>Upload PAN <span class="star-imp">*</span></label>
+                <input type="file" name='pan_upload' style="height: 25px;border: none;padding: 0;" id="pan_upload" onchange="uploadFile('pan_upload')" accept=".txt,.pdf,.jpg,.jpeg,.png" required>
+               <span class="file_status" id="pan_upload_status"></span><br><br>
+            </div>
+
+            <div class="user_pincode">
+                <label>Your Selfie <span class="star-imp">*</span></label>
+                <input type="file" name='selfi_upload' style="height: 25px;border: none;padding: 0;" id="selfi_upload" onchange="uploadFile('selfi_upload')" accept=".txt,.pdf,.jpg,.jpeg,.png" required>
+               <span class="file_status" id="selfi_upload_status"></span><br><br>
+            </div>
+
+            <div class="user_pincode">
+                <label>Income Proof <span class="star-imp">*</span></label>
+                <input type="file" name='income_upload'style="height: 25px;border: none;padding: 0;" id="income_upload" onchange="uploadFile('income_upload')" accept=".txt,.pdf,.jpg,.jpeg,.png" required>
+               <span class="file_status" id="income_upload_status"></span><br><br>
+            </div>
+
+            <div class="user_pincode">
+                <label>Bank Statement <span class="star-imp">*</span></label>
+                <input type="file" name='bank_upload' style="height: 25px;border: none;padding: 0;" id="bank_upload" onchange="uploadFile('bank_upload')" accept=".txt,.pdf,.jpg,.jpeg,.png" required>
+               <span class="file_status" id="bank_upload_status"></span><br><br>
+            </div>
+
+          <div class="user_pincode">
+                <label>Photo Copy of Your Signature <span class="star-imp">*</span></label>
+                <input type="file" name='bank_upload' style="height: 25px;border: none;padding: 0;" id="esign_upload" onchange="uploadFile('esign_upload')"accept=".txt,.pdf,.jpg,.jpeg,.png" required>
+             <span class="file_status" id="esign_upload_status"></span><br><br>
+            </div>
+
+            <div class="user_pincode">
+                <label>Any Other Document</label>
+                <input type="file" name='other_upload' style="height: 25px;border: none;padding: 0;" id="other_upload" onchange="uploadFile('other_upload')" accept=".txt,.pdf,.jpg,.jpeg,.png">
+               <span class="file_status" id="other_upload_status"></span><br><br>
+            </div>
+
+            <input type="text" name='latitude' style="display: none;" value="" id="latitude" required>
+            <input type="text" name='longitude' value=""  id="longitude" style="display: none;" required>
+
+            <!-- <input type='submit' value="submit" id="submit" disabled> -->
+          <p id="form-err">Error while submitting the form, Check all * field filled and submit</p>
+
+          <button type="button" id="submitBtn" class="submit-btn" onclick="sendData()" disabled>Send Data</button>
+          
+          <div id="spinner" style="display: none;">
+      <img src="{{ url_for('static', filename='./assets/2s.gif') }}" alt="Loading..." />
+    </div>
+
+        </form>
+    </div>
+    </section>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js" integrity="sha512-3gJwYpMe3QewGELv8k/BX9vcqhryRdzRMxVfq6ngyWXwo03GFEzjsUm8Q7RZcHPHksttq7/GFoxjCVUjkjvPdw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+<script>
+        function husName() {
+            document.getElementById("sub-name").innerHTML = "Husband's / Wife's Name";
+        }
+
+        function momName() {
+            document.getElementById("sub-name").innerHTML = "Mother's Name";
+        }
+
+// Map
+function myLocation() {
+        if (navigator.geolocation) {
+            document.getElementById("loadAdd").style.display = "block"
+            navigator.geolocation.getCurrentPosition(myAddress, showError);
+        } else { 
+            alert("Geolocation is not supported by this browser.");
+        }
+        }
+
+        //jquery request to Gmap
+        function myAddress(position) {
+
+            muhe = document.getElementById("latitude")
+            muhe.value = position.coords.latitude;
+            muhe1 = document.getElementById("longitude")
+            muhe1.value = position.coords.longitude;
+
+
+            var address = encodeURIComponent($("#location").val());
+
+            $.ajax({
+                type: "GET",
+                url: "https://maps.googleapis.com/maps/api/geocode/json?latlng=" + position.coords.latitude + "," + position.coords.longitude + "&sensor=false&key=AIzaSyB_-zBkGssoscw5JAz5An46kYF5MDQ7d2M",
+                dataType: "json",
+                success: processJSON
+            })
+
+            function processJSON(json) {
+                console.log(json);
+                addInput = document.getElementById("myAdd")
+                addInput.value = json.results[0].formatted_address;
+                document.getElementById("loadAdd").style.display = "none";
+                // addInput.value = "something";
+                // addInput.setAttribute('readonly', '')
+            }
+    };
+        function showError(error) {
+        switch(error.code) {
+            case error.PERMISSION_DENIED:
+            document.getElementById("loadAdd").style.display = "none";
+            alert("User denied the request for Geolocation.")
+            break;
+            case error.POSITION_UNAVAILABLE:
+            document.getElementById("loadAdd").style.display = "none";
+            alert("Location information is unavailable.")
+            break;
+            case error.TIMEOUT:
+            document.getElementById("loadAdd").style.display = "none";
+            alert("The request to get user location timed out.")
+            break;
+            case error.UNKNOWN_ERROR:
+            document.getElementById("loadAdd").style.display = "none";
+            alert("An unknown error occurred.")
+            break;
+        }
+    console.log(navigator.geolocation)
+}
+</script>
+  <script>var formId = "{{ formid }}"</script>
+  <script src=" {{ url_for('static', filename='./js/kyc.js') }} "> </script>
+</body>
+</html>
+
+
+
+

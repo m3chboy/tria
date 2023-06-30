@@ -6,3 +6,4 @@ sqlalchemy.orm
 flask_bcrypt
 flask_login
 pymysql
+uuid

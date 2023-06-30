@@ -19,7 +19,7 @@
     <div class="container-o">
         <div class="navbar-o">
             <div class="logo">
-                <a href="/formdata"><i class="bi bi-arrow-left-circle"></i> Go Back</a>
+                <a href="/kycformdata"><i class="bi bi-arrow-left-circle"></i> Go Back</a>
             </div>
             <div class="time-period">
                   <div class="custom">
@@ -44,19 +44,19 @@
                   </tr>
                  <tr>
                     <td class="tname">Loan Amount: </td>
-                    <td>{{ single_form[0].loan }}</td>
-                  </tr>
-                  <tr>
-                    <td class="tname">PAN: </td>
-                    <td>{{ single_form[0].pan }}</td>
+                    <td>{{ single_form[0].address }}</td>
                   </tr>
                   <tr>
                     <td class="tname">Pincode: </td>
                     <td>{{ single_form[0].pincode }}</td>
                   </tr>
                   <tr>
-                    <td class="tname">Gender: </td>
-                    <td>{{ single_form[0].gender }}</td>
+                    <td class="tname">PAN: </td>
+                    <td>{{ single_form[0].pan }}</td>
+                  </tr>
+                  <tr>
+                    <td class="tname">Aadhar: </td>
+                    <td>{{ single_form[0].aadhar }}</td>
                   </tr>
                   <tr>
                     <td class="tname">Email: </td>
@@ -67,42 +67,63 @@
                     <td>{{ single_form[0].mobile }}</td>
                   </tr>
                   <tr>
+                    <td class="tname">Date  of Birth: </td>
+                    <td>{{ single_form[0].dob }}</td>
+                  </tr>
+                  <tr>
+                    <td class="tname">Status: </td>
+                    <td>{{ single_form[0].mstatus }}</td>
+                  </tr>
+                  <tr>
+                    <td class="tname">Gaurdian: </td>
+                    <td>{{ single_form[0].gaurdian }}</td>
+                  </tr>
+                  <tr>
+                    <td class="tname">Latitude: </td>
+                    <td>{{ single_form[0].latitude }}</td>
+                  </tr>
+                  <tr>
+                    <td class="tname">Longitude: </td>
+                    <td>{{ single_form[0].longitude }}</td>
+                  </tr>
+                  <tr>
+                    <td class="tname">PAN: </td>
+                    <td><a href="/image/pan_cpy/{{ single_form[0].formid }}" target="_blank">View Image</a></td>
+                  </tr>
+                  <tr>
+                  <td class="tname">Aadhar: </td>
+                    <td><a href="/image/aadhar_cpy/{{ single_form[0].formid }}" target="_blank">View Image</a></td>
+                  </tr>
+                  <tr>
+                  <td class="tname">Income Proof: </td>
+                    <td><a href="/image/income_cpy/{{ single_form[0].formid }}" target="_blank">View Image</a></td>
+                  </tr>
+                  <tr>
+                  <td class="tname">Bank Statement: </td>
+                    <td><a href="/image/bank_cpy/{{ single_form[0].formid }}" target="_blank">View Image</a></td>
+                  </tr>
+                  <tr>
+                  <td class="tname">Client Photo: </td>
+                    <td><a href="/image/selfi_cpy/{{ single_form[0].formid }}" target="_blank">View Image</a></td>
+                  </tr>
+                  <tr>
+                  <td class="tname">Esign: </td>
+                    <td><a href="/image/esign_cpy/{{ single_form[0].formid }}" target="_blank">View Image</a></td>
+                  </tr>
+                  <tr>
+                  <td class="tname">Other Docs: </td>
+                    <td><a href="/image/other_cpy/{{ single_form[0].formid }}" target="_blank">View Image</a></td>
+                  </tr>
+                  <tr>
                     <td class="tname"> </td>
                     <td></td>
                   </tr>
                 </tbody>
                  </table>
-                 <button id="myButton">Send Mail <i class="bi bi-send"></i></button>
+                 <!-- <button>Send Mail <i class="bi bi-send"></i></button> -->
             </div>
         </div>
     </div>
-  <script>
-  function sendRequest() {
-    // Create a new XMLHttpRequest object
-    var xhr = new XMLHttpRequest();
-
-    // Configure the request
-    xhr.open('GET', '/create-form', true);
-
-    // Set up the onload event handler
-    xhr.onload = function() {
-      if (xhr.status === 200) {
-        // Display the response in an alert box
-        alert("https://tria.muheattacker.repl.co/kycform/" + xhr.responseText);
-      } else {
-        alert('Request failed. Status: ' + xhr.status);
-      }
-    };
-
-    // Send the request
-    xhr.send();
-  }
-
-  // Attach the function to the button click event
-  var button = document.getElementById('myButton');
-  button.addEventListener('click', sendRequest);
-</script>
-
 </body>
 <style>
     * {

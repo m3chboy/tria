@@ -7,26 +7,95 @@
   <title>login</title>
 </head>
 <body>
+    <div class="container">
 <h1>Login Form</h1>
-  <form action="/login" method="post">
-    <lable>Phone Number</lable><br>
-    <input type="tel" name='email'><br><br><br>
+  <form action="/login-tria" method="post" id="login_form">
+    <lable for="email">Email</lable><br>
+    <input type="tel" name='email' id="email"><br><br><br>
     <lable>password</lable><br>
     <input type="password" name='password'><br><br><br>
-    <input type='submit' value="submit">
+    <input type='submit' value="submit" id="submit">
   </form>
+</div>
 </body>
-  <style>
-    body {
+<style>
+    * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Helvetica, sans-serif;
+    text-decoration: none;
+    list-style: none;
+}
+body {
       display: flex;
       flex-direction: column;
       align-items: center;
       text-align: center;
       justify-content: center;
+      background: #ecf0f3;
       
-    }
-    lable {
-      font-size: 28px;
-    }
-  </style>
+}
+
+.container {
+    max-width: 2400px;
+    width: 97%;
+    height: 95vh;
+    border-radius: 8px;
+    box-shadow: 13px 13px 20px #cbced1,
+                -13px -13px 20px #ffffff;
+    margin: auto;
+    margin-top: 50px;
+}
+
+.container h1 {
+    margin-top: 30px;
+    border-radius: 8px;
+    box-shadow: 10px 10px 16px #cbced1,
+                -10px -10px 16px #ffffff;
+    padding: 5px;
+    width: 300px;
+    margin: auto;
+    margin-top: 30px;
+}
+
+#login_form {
+    margin: auto;
+    margin-top: 50px;
+    border-radius: 8px;
+    border-radius: 8px;
+    box-shadow: 13px 13px 20px #cbced1,
+                -13px -13px 20px #ffffff;
+    padding: 50px;
+    width: 300px;
+}
+
+lable {
+    font-size: 18px;
+    font-family: Helvetica, sans-serif;
+    padding: 5px;
+    margin-bottom: 50px;
+}
+
+input {
+    margin-top: 20px;
+    height: 30px;
+    border: none;
+    border-radius: 8px;
+    box-shadow: inset 3px 3px 3px #cbced1,
+                inset -3px -3px 3px #ffffff;
+    min-width: 100px;
+    font-size: 18px;
+}
+
+#submit {
+    border-radius: 8px;
+    box-shadow: 10px 10px 16px #cbced1,
+                -10px -10px 16px #ffffff;
+    background: rgb(0, 217, 255);
+    cursor: pointer;
+}
+
+
+</style>
 </html>

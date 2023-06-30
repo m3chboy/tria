@@ -7,6 +7,7 @@ import os
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'jgvdfgjdf34gy43y3'
+app.config['MAX_CONTENT_LENGTH'] = 3 * 1000 * 1000
 bcrypt = Bcrypt(app)
 login_manager = LoginManager(app)
 login_manager.login_view = "login_page"

@@ -178,6 +178,15 @@ Body
     border-radius: 14px;    
  }
 
+.container-body .sidebar ul li:hover
+ {  
+    margin: 5px  0;
+    padding: 8px;
+    box-shadow: inset 3px 3px 3px #cbced1,
+    inset -3px -3px 3px #ffffff; 
+    border-radius: 14px;    
+ }
+
  .container-body .sidebar ul .notification span
  {
     font-size: 10px;
