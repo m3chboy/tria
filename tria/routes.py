@@ -140,8 +140,7 @@ def table_page(formid):
   form_exist = kyc_form_exist(formid)
   if form_exist:
     kyc_already = kyc_form_exist(formid)
-    if not kyc_already:
-      if request.method == 'POST':
+    if request.method == 'POST':
         form = request.form
         fname = form.get('fname')
         sname = form.get('sname')
@@ -171,7 +170,7 @@ def table_page(formid):
                          latitude, 
                          longitude)
         return 'ok'
-      return render_template('kycform.html', formid=formid)
+    return render_template('kycform.html', formid=formid)
 
     return 'Form was already submitted', 401
   return 'form not exist'
